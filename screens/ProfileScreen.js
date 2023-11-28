@@ -23,6 +23,9 @@ const ProfileScreen = () => {
       <Pressable onPress={signOutUser}>
         <Text>Sign Out</Text>
       </Pressable>
+      {/* <Pressable onPress={navigation.replace("Home")}>
+        <Text>Back To Home</Text>
+      </Pressable> */}
     </SafeAreaView>
   )
 }

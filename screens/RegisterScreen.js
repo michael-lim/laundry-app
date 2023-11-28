@@ -1,26 +1,20 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-  TextInput,
-  SafeAreaView,
-  KeyboardAvoidingView,
-  Alert
-} from "react-native";
+import { StyleSheet, Text, View, Pressable, TextInput, SafeAreaView, KeyboardAvoidingView, Alert, } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-  import { createUserWithEmailAndPassword } from "firebase/auth";
-  import { auth, db } from "../firebase";
-  import { doc, setDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
+
 const RegisterScreen = () => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const navigation = useNavigation();
+
   const register = () => {
     if (email === "" || password === "" || phone === "") {
       Alert.alert(
@@ -37,6 +31,7 @@ const RegisterScreen = () => {
         { cancelable: false }
       );
     }
+    
     createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
       console.log("user credential", userCredential);
       const user = userCredential._tokenResponse.email;
@@ -48,6 +43,7 @@ const RegisterScreen = () => {
       })
     })
   }
+  
   return (
     <SafeAreaView
       style={{

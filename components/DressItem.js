@@ -1,20 +1,18 @@
 import { StyleSheet, Text, View, Pressable, Image } from "react-native";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addToCart,
-  decrementQuantity,
-  incrementQuantity,
-} from "../CartReducer";
+import { addToCart, decrementQuantity, incrementQuantity, } from "../CartReducer";
 import { decrementQty, incrementQty } from "../ProductReducer";
 
 const DressItem = ({ item }) => {
+
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
   const addItemToCart = () => {
     dispatch(addToCart(item)); // cart
     dispatch(incrementQty(item)); // product
   };
+  
   return (
     <View>
       <Pressable

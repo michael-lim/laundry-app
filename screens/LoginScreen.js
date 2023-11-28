@@ -1,20 +1,13 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  KeyboardAvoidingView,
-  TextInput,
-  Pressable,
-  ActivityIndicator
-} from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, KeyboardAvoidingView, TextInput, Pressable, ActivityIndicator, } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
+
 const LoginScreen = () => {
+
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");

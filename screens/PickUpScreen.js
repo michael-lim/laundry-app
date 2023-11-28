@@ -1,19 +1,11 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  TextInput,
-  Pressable,
-  ScrollView,
-  Alert
-} from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, TextInput, Pressable, ScrollView, Alert, } from "react-native";
 import React, { useState } from "react";
 import HorizontalDatepicker from "@awrminkhodaei/react-native-horizontal-datepicker";
 import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 
 const PickUpScreen = () => {
+
   const [selectedDate, setSelectedDate] = useState("");
   const cart = useSelector((state) => state.cart.cart);
   const total = cart
@@ -21,6 +13,7 @@ const PickUpScreen = () => {
     .reduce((curr, prev) => curr + prev, 0);
   const [selectedTime, setSelectedTime] = useState([]);
   const [delivery, setDelivery] = useState([]);
+
   const deliveryTime = [
     {
       id: "0",
@@ -70,7 +63,9 @@ const PickUpScreen = () => {
       time: "4:00 PM",
     },
   ];
+
   const navigation = useNavigation();
+
   const proceedToCart = () => {
     if (!selectedDate || !selectedTime || !delivery) {
       Alert.alert(
@@ -92,7 +87,6 @@ const PickUpScreen = () => {
         pickUpDate: selectedDate,
         selectedTime: selectedTime,
         no_Of_days: delivery,
-
       })
     }
   }
